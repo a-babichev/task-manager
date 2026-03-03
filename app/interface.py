@@ -32,7 +32,7 @@ def action_choicer(choice: str):
 
     elif choice == '2':
         while True:
-            title = input('Введите название задачу: ').strip()
+            title = input('Введите название задачи: ').strip()
             if title:
                 task = manager.add(title)
                 print(f'Задача добавлена с ID {task.id}.')
