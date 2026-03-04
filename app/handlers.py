@@ -15,6 +15,7 @@ class TaskManager:
         save_data([task.__dict__ for task in self.tasks])
 
     def add(self, title: str) -> Task:
+        """Добавление задачи."""
         next_id = max((task.id for task in self.tasks), default=0) + 1
         task = Task(title=title, id=next_id)
         self.tasks.append(task)
@@ -22,9 +23,11 @@ class TaskManager:
         return task
 
     def get_all(self) -> list[Task]:
+        """Получение всех задач."""
         return self.tasks
 
     def delete(self, task_id: int) -> bool:
+        """Удаление задачи."""
         for task in self.tasks:
             if task.id == task_id:
                 self.tasks.remove(task)
@@ -33,6 +36,7 @@ class TaskManager:
         return False
 
     def mark_completed(self, task_id: int) -> bool:
+        """Отметка о выполнении."""
         for task in self.tasks:
             if task.id == task_id:
                 task.completed = True
